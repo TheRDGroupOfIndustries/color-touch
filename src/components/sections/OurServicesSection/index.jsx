@@ -34,10 +34,10 @@ const OurServicesSection = () => {
     return (
         <div className="bg-gray-50 py-12 md:py-20">
             <div className="text-center px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">
                     Our <span className="text-transparent bg-clip-text animate-gradient-background animate-gradient">Services</span>
                 </h1>
-                <div className="w-24 h-1 animate-gradient-background mx-auto my-4 rounded-full"></div>
+                <div className="w-24 h-1 animate-gradient-background mx-auto my-4 rounded-full mb-5"></div>
                 <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
                     Comprehensive digital marketing solutions designed to
                     elevate your brand and drive meaningful engagement

@@ -4,10 +4,10 @@ const AboutColorTouchSection = () => {
     return (
         <div className="bg-white py-12 px-6 md:py-20">
             <div className="text-center px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
                     About <span className="animate-gradient">ColorTouch</span>
                 </h1>
-                <div className="w-24 h-1 animate-border mx-auto my-4"></div>
+                <div className="w-24 h-1 animate-border mx-auto my-4 mb-8"></div>
                 <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
                     We're a passionate team of digital artists and marketing
                     strategists who{" "}

@@ -52,47 +52,71 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm mt-2 rounded-t-xl px-4 lg:px-28 py-3 flex items-center justify-between">
+        <div className="sticky top-0 z-50 bg-white/90  shadow-sm rounded-t-xl px-6 lg:px-40 py-2 flex items-center justify-between mx-auto">
             {/* Logo */}
-            <div className="font-bold text-2xl lg:text-4xl text-transparent bg-clip-text animate-gradient">
-                Color Touch
+            <div className="max-w-7xl font-bold text-3xl lg:text-2xl text-transparent bg-clip-text animate-gradient">
+                ColorTouch
             </div>
 
             {/* Desktop Navigation */}
-            <ul className="hidden lg:flex items-center gap-10">
-                <li className="hover:text-blue-600 transition-colors cursor-pointer">Home</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer">About</li>
+                {/* Desktop Navigation */}
+<ul className="hidden md:flex items-center space-x-8">
+    {['Home', 'About'].map((item) => (
+        <li key={item}>
+            <a
+                href={`#${item.toLowerCase()}`}
+                className="relative font-medium text-gray-700 hover:text-black transition-colors group py-2"
+            >
+                {item}
+                {/* Gradient Underline */}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </li>
+    ))}
 
-                {/* Dropdown Section */}
-                <li className="relative" ref={dropdownRef}>
-                    <p
-                        onClick={() => setIsOpen(!isOpen)}
-                        className="cursor-pointer rounded-lg px-5 py-2.5 text-center inline-flex items-center hover:text-blue-600 transition-colors"
+    {/* Dropdown Section */}
+    <li className="relative dropdown" ref={dropdownRef}>
+        <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative flex items-center font-medium text-gray-700 hover:text-black transition-colors focus:outline-none group py-2"
+        >
+            Services
+            <FaAngleDown className={`ml-1 text-sm transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+            
+            {/* Gradient Underline for Services */}
+            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+        </button>
+
+        {isOpen && (
+            <div className="absolute left-0 mt-2 w-60 bg-white border border-gray-100 rounded-lg shadow-lg py-2 z-20 px-2">
+                {services.map((service, index) => (
+                    <a
+                        key={index}
+                        href="#"
+                        className="block px-2 py-3 rounded-lg text-sm font-medium text-gray-700 transition-all duration-300 hover:text-white hover-animated-bg hover:shadow-md"
                     >
-                        Services
-                        <FaAngleDown className={`mt-1 ml-1 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-                    </p>
+                        {service}
+                    </a>
+                ))}
+            </div>
+        )}
+    </li>
 
-                    {isOpen && (
-                        <div className="absolute left-0 mt-2 z-20 bg-white divide-y divide-gray-100 rounded-lg shadow-md w-60 dark:bg-gray-700">
-                            <ul className="p-4 space-y-2 text-gray-700">
-                                {services.map((service, index) => (
-                                    <li
-                                        key={index}
-                                        className="block px-4 py-2 hover-animated-bg transition-all duration-300 cursor-pointer rounded-md text-gray-800 hover:text-blue-600"
-                                    >
-                                        {service}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    )}
-                </li>
+    {['Portfolio', 'Testimonials', 'Contact'].map((item) => (
+        <li key={item}>
+            <a
+                href={`#${item.toLowerCase()}`}
+                className="relative font-medium text-gray-700 hover:text-black transition-colors group py-2"
+            >
+                {item}
+                {/* Gradient Underline */}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </li>
+        ))}
+    </ul>
 
-                <li className="hover:text-blue-600 transition-colors cursor-pointer">Portfolio</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer">Testimonials</li>
-                <li className="hover:text-blue-600 transition-colors cursor-pointer">Contact</li>
-            </ul>
+                
 
             {/* Mobile Menu Button */}
             <button
@@ -109,7 +133,7 @@ const Navbar = () => {
                     className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg rounded-b-xl mx-2 border-t"
                 >
                     <ul className="flex flex-col p-4 space-y-4">
-                        <li className="hover:text-blue-600 transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
+                        <li className="hover:text-black transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
                             Home
                         </li>
                         <li className="hover:text-blue-600 transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
@@ -131,7 +155,7 @@ const Navbar = () => {
                                     {services.map((service, index) => (
                                         <div
                                             key={index}
-                                            className="block py-2 px-6 transition-all duration-300 cursor-pointer rounded-md text-gray-700 hover:text-blue-600 hover:bg-white"
+                                            className="block py-2 px-6 transition-all duration-300 cursor-pointer rounded-md text-gray-700 hover:text-blue-600 hover:bg-white font-"
                                             onClick={() => setIsMobileMenuOpen(false)}
                                         >
                                             {service}

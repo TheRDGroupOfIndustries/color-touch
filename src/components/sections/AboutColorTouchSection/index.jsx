@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const AboutColorTouchSection = () => {
     return (
-        <div className="bg-white py-12 md:py-20">
+        <div className="bg-white py-12 px-6 md:py-20">
             <div className="text-center px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
                     About <span className="animate-gradient">ColorTouch</span>
                 </h1>
                 <div className="w-24 h-1 animate-border mx-auto my-4"></div>
-                <p className="text-base sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
+                <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
                     We're a passionate team of digital artists and marketing
                     strategists who{" "}
                     <span className="hidden sm:inline">
@@ -22,7 +22,7 @@ const AboutColorTouchSection = () => {
                 {/* Text Content */}
                 <div className="w-full lg:w-1/2 h-auto lg:h-96 space-y-4">
                     <h1 className="text-2xl sm:text-3xl font-bold">Our Creative Journey</h1>
-                    <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
+                    <p className="text-gray-600 sm:text-lg lg:text-lg leading-relaxed">
                         Founded in 2020, ColorTouch emerged from a simple
                         belief: digital marketing should be as
                         vibrant and dynamic as the brands we represent. We've
@@ -37,10 +37,10 @@ const AboutColorTouchSection = () => {
                             "Data-Driven Results",
                             "Client Success Focus",
                         ].map((text, i) => (
-                            <div key={i} className="flex items-center gap-3">
+                            <div key={i} className="flex items-center gap-4">
                                 <span
-                                    className="h-5 w-5 sm:h-6 sm:w-6 rounded-full animate-gradient-background flex-shrink-0"></span>
-                                <p className="text-base sm:text-lg font-medium">{text}</p>
+                                    className="h-16 w-16 sm:h-8 sm:w-8 rounded-full animate-gradient-background "></span>
+                                <p className="lg:text-[20px] sm:text-lg font-medium">{text}</p>
                             </div>
                         ))}
                     </div>

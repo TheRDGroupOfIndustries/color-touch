@@ -54,11 +54,11 @@ const ClientTestimonialsSection = () => {
     return (
         <div className="bg-gray-50 py-20">
             <div className="text-center">
-                <h1 className="text-5xl font-bold">
+                <h1 className="text-5xl font-bold mb-6">
                     Client <span className="animate-gradient">Testimonials</span>
                 </h1>
-                <div className="w-24 h-1 animate-border mx-auto my-4"></div>
-                <p className="text-xl my-4">
+                <div className="w-24 h-1 animate-border mx-auto my-4 mb-8"></div>
+                <p className="text-xl my-4 text-gray-600">
                     Hear what our clients say about their experience working with
                     ColorTouch <br />
                     and the results we've achieved together.

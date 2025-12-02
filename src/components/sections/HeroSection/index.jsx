@@ -15,7 +15,7 @@ export const HeroSection = () => {
 
             {/* Content */}
             <div className="relative z-10 w-full">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-40 py-20">
                     <div className="w-full lg:w-[45%] space-y-6 sm:space-y-8 lg:space-y-10">
                         {/* Heading */}
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight sm:leading-snug lg:leading-tight">

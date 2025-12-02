@@ -35,39 +35,45 @@ const OurServicesSection = () => {
         <div className="bg-gray-50 py-12 md:py-20">
             <div className="text-center px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
-                    Our <span className="animate-gradient">Services</span>
+                    Our <span className="text-transparent bg-clip-text animate-gradient-background animate-gradient">Services</span>
                 </h1>
-                <div className="w-24 h-1 animate-border mx-auto my-4"></div>
-                <p className="text-base sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
+                <div className="w-24 h-1 animate-gradient-background mx-auto my-4 rounded-full"></div>
+                <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
                     Comprehensive digital marketing solutions designed to
-                    elevate your brand and drive meaningful engagement{" "}
-                    <span className="hidden lg:inline">
-                        <br />
-                    </span>
+                    elevate your brand and drive meaningful engagement
                     with your audience.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 xl:gap-20 mt-8 sm:mt-12 lg:mt-16 px-4 sm:px-6 lg:px-8 xl:px-16">
-                {servicesData.map((service, index) => (
-                    <div
-                        className="space-y-3 sm:space-y-4 p-4 sm:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-                        key={index}
-                    >
-                        <div className="h-10 w-10 p-2 md:p-3 sm:h-12 sm:w-12 rounded-xl animate-gradient-background text-white text-xl sm:text-2xl flex items-center justify-center">
-                            {service.icon}
-                        </div>
-                        <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
-                            {service.title}
-                        </h1>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                            {service.description}
-                        </p>
-                    </div>
-                ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 px-4 sm:px-6 lg:px-16 max-w-[1400px] mx-auto">
+               {servicesData.map((service, index) => (
+    <div
+        className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+        key={index}
+    >
+        {/* Icon Container - Updated for Perfect Centering */}
+        <div className="h-14 w-14 rounded-2xl animate-gradient-background flex items-center justify-center shadow-md mb-6 pt-[13px]">
+            {/* We wrap the icon in a span or div to control its size explicitly if needed */}
+            <span className="text-white text-3xl flex items-center justify-center">
+                {service.icon}
+            </span>
+        </div>
+        
+        {/* Title */}
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            {service.title}
+        </h3>
+        
+        {/* Description */}
+        <p className="text-gray-600 leading-relaxed text-base">
+            {service.description}
+        </p>
+    </div>
+))}
             </div>
         </div>
     );
 };
 
 export default OurServicesSection;
+

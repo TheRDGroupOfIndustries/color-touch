@@ -25,11 +25,11 @@ const GetInTouchSection = () => {
     return (
         <div className="bg-white py-12 md:py-20">
             <div className="text-center px-4 sm:px-6 lg:px-8">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
                     Get In <span className="animate-gradient">Touch</span>
                 </h1>
-                <div className="w-24 h-1 animate-border mx-auto my-4"></div>
-                <p className="text-base sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
+                <div className="w-24 h-1 animate-border mx-auto my-4 mb-8"></div>
+                <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto ">
                     Ready to add color to your digital presence? Let's discuss
                     how we can help your brand shine in the digital landscape.
                     <span className="hidden lg:inline">
@@ -107,9 +107,14 @@ const GetInTouchSection = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <Button className="w-full text-base sm:text-lg animate-gradient-background hover:scale-105 transition-transform">
-                        Send Message
-                    </Button>
+                   <div className="flex justify-center w-full mt-4">
+    <Button 
+        type="submit"
+        className="w-full sm:w-auto min-w-[200px] h-auto py-4 px-8 text-base sm:text-lg font-semibold animate-gradient-background hover:scale-105 transition-transform rounded-lg flex items-center justify-center leading-none"
+    >
+        Send Message
+    </Button>
+</div>
                 </form>
             </div>
         </div>

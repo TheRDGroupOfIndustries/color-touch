@@ -110,7 +110,7 @@ const GetInTouchSection = () => {
                    <div className="flex justify-center w-full mt-4">
     <Button 
         type="submit"
-        className="w-full sm:w-auto min-w-[200px] h-auto py-4 px-8 text-base sm:text-lg font-semibold animate-gradient-background hover:scale-105 transition-transform rounded-lg flex items-center justify-center leading-none"
+        className="w-full sm:w-full min-w-[200px] h-auto py-4 px-8 text-base sm:text-lg font-semibold animate-gradient-background hover:scale-105 transition-transform rounded-lg flex items-center justify-center leading-none"
     >
         Send Message
     </Button>

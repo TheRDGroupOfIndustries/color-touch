@@ -52,9 +52,9 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="sticky top-0 z-50 bg-white/90  shadow-sm rounded-t-xl px-6 lg:px-40 py-2 flex items-center justify-between mx-auto">
+        <div className="sticky top-0 z-50 bg-white  shadow-sm rounded-t-xl px-6 lg:px-40 py-2 flex items-center justify-between mx-auto">
             {/* Logo */}
-            <div className="max-w-7xl font-bold text-3xl lg:text-2xl text-transparent bg-clip-text animate-gradient">
+            <div className="max-w-7xl font-bold text-3xl lg:text-[25px] text-transparent bg-clip-text animate-gradient">
                 ColorTouch
             </div>
 
@@ -65,11 +65,11 @@ const Navbar = () => {
         <li key={item}>
             <a
                 href={`#${item.toLowerCase()}`}
-                className="relative font-medium text-gray-700 hover:text-black transition-colors group py-2"
+                className="relative font-semibold text-gray-700 hover:text-black transition-colors group py-2 text-[17px]"
             >
                 {item}
                 {/* Gradient Underline */}
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
             </a>
         </li>
     ))}
@@ -78,7 +78,7 @@ const Navbar = () => {
     <li className="relative dropdown" ref={dropdownRef}>
         <button
             onClick={() => setIsOpen(!isOpen)}
-            className="relative flex items-center font-medium text-gray-700 hover:text-black transition-colors focus:outline-none group py-2"
+            className="relative flex items-center font-semibold text-gray-700 hover:text-black transition-colors focus:outline-none group py-2 text-[17px]"
         >
             Services
             <FaAngleDown className={`ml-1 text-sm transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
@@ -93,7 +93,7 @@ const Navbar = () => {
                     <a
                         key={index}
                         href="#"
-                        className="block px-2 py-3 rounded-lg text-sm font-medium text-gray-700 transition-all duration-300 hover:text-white hover-animated-bg hover:shadow-md"
+                        className="block px-2 py-3 rounded-lg text-sm font-medium text-gray-700 transition-all duration-300 hover:text-white hover-animated-bg hover:shadow-md "
                     >
                         {service}
                     </a>
@@ -106,11 +106,11 @@ const Navbar = () => {
         <li key={item}>
             <a
                 href={`#${item.toLowerCase()}`}
-                className="relative font-medium text-gray-700 hover:text-black transition-colors group py-2"
+                className="relative font-semibold text-gray-700 hover:text-black transition-colors group py-2 text-[17px]"
             >
                 {item}
                 {/* Gradient Underline */}
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
             </a>
         </li>
         ))}

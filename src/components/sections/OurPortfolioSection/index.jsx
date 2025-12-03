@@ -11,7 +11,7 @@ const OurPortfolioSection = () => {
     ];
 
     return (
-        <div className="bg-white py-12 md:py-20">
+        <div className="bg-white py-12 md:py-20" id="portfolio">
             <div className="text-center px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
                     Our <span className="animate-gradient">Portfolio</span>

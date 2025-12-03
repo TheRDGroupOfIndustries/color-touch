@@ -52,7 +52,7 @@ const StarRating = ({ rating }) => (
 
 const ClientTestimonialsSection = () => {
     return (
-        <div className="bg-gray-50 py-20">
+        <div className="bg-gray-50 py-20" id="testimonials">
             <div className="text-center">
                 <h1 className="text-5xl font-bold mb-6">
                     Client <span className="animate-gradient">Testimonials</span>

@@ -7,11 +7,11 @@ import {
 
 const Footer = () => {
     return (
-        <div className="px-4 sm:px-6 lg:px-8 xl:px-28 py-8 sm:py-12 lg:py-14 bg-[#101725]">
+        <div className="px-4 sm:px-6 lg:px-8 xl:px-28 py-8 sm:py-12 lg:py-12 bg-[#101725]">
             <div className="flex flex-col lg:flex-row justify-between gap-8 sm:gap-12 lg:gap-20">
                 {/* Company Info */}
                 <div className="w-full lg:w-1/4">
-                    <h2 className="animate-gradient text-2xl sm:text-3xl font-bold">ColorTouch</h2>
+                    <h2 className="animate-gradient text-2xl sm:text-3xl lg:text-2xl font-bold">ColorTouch</h2>
                     <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed">
                         Adding color to your digital presence with creative marketing
                         solutions that drive real results.
@@ -61,8 +61,8 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="border-t border-gray-800 mt-8 sm:mt-12 lg:mt-16 pt-6 sm:pt-8">
-                <p className="text-center text-gray-400 text-xs sm:text-sm">
+            <div className="border-t border-gray-800 mt-8 sm:mt-12 lg:mt-5 pt-6 sm:pt-8">
+                <p className="text-center text-gray-400 text-xl sm:text-sm lg:text-md">
                     © 2025 ColorTouch Digital Marketing Agency. All rights reserved.
                 </p>
             </div>

@@ -7,7 +7,7 @@ const AboutColorTouchSection = () => {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
                     About <span className="animate-gradient">ColorTouch</span>
                 </h1>
-                <div className="w-24 h-1 animate-border mx-auto my-4 mb-8"></div>
+                <div className="w-24 h-1 animate-border mx-auto mb-8"></div>
                 <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
                     We're a passionate team of digital artists and marketing
                     strategists who{" "}
@@ -39,8 +39,8 @@ const AboutColorTouchSection = () => {
                         ].map((text, i) => (
                             <div key={i} className="flex items-center gap-4">
                                 <span
-                                    className="h-16 w-16 sm:h-8 sm:w-8 rounded-full animate-gradient-background "></span>
-                                <p className="lg:text-[20px] sm:text-lg font-medium">{text}</p>
+                                    className="h-8 w-8 sm:h-10 sm:w-10 lg:h-8 lg:w-8 rounded-full animate-gradient-background "></span>
+                                <p className="lg:text-[18px] sm:text-lg font-medium text-gray-900">{text}</p>
                             </div>
                         ))}
                     </div>

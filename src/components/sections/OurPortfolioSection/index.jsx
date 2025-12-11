@@ -17,7 +17,7 @@ const OurPortfolioSection = () => {
                     Our <span className="animate-gradient">Portfolio</span>
                 </h1>
                 <div className="w-24 h-1 animate-border mx-auto my-4 mb-8"></div>
-                <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
+                <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-3xl mx-auto">
                     Explore our successful projects and see how we've helped brands
                     achieve remarkable digital transformation
                     <span className="hidden lg:inline">

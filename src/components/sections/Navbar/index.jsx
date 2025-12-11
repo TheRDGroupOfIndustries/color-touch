@@ -4,176 +4,242 @@ import { useState, useRef, useEffect } from "react";
 import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const dropdownRef = useRef(null);
+   
+    const [isServicesOpen, setIsServicesOpen] = useState(false); 
+    const [isAboutHovered, setIsAboutHovered] = useState(false); 
+    
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false); 
+    const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
+    
+    const servicesDropdownRef = useRef(null);
+    const aboutDropdownRef = useRef(null);
     const mobileMenuRef = useRef(null);
 
-
+   
+    // Close dropdowns when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
-            // Close dropdown if click is outside
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsOpen(false);
+            if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target)) {
+                setIsServicesOpen(false);
             }
-            // Close mobile menu if click is outside
             if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && !event.target.closest('.mobile-menu-button')) {
                 setIsMobileMenuOpen(false);
             }
         };
 
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // Close mobile menu when resizing to desktop
+    // Close mobile menu on resize to desktop
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 1024) {
-                setIsMobileMenuOpen(false);
-            }
+            if (window.innerWidth >= 1024) setIsMobileMenuOpen(false);
         };
-
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    
     const services = [
-        "Digital Strategy",
-        "Search Engine Optimization",
-        "Social Media Marketing",
-        "PPC & Media Buying",
-        "Website Designing",
-        "Influencer Marketing",
-        "Content Marketing",
-        "Creative Designs",
+        "Digital Marketing", "PR", "Traditional Marketing", "News Paper Advertisement",
+        "Offline Marketing", "Digital Strategy", "Search Engine Optimization",
+        "Social Media Marketing", "PPC & Media Buying", "Website Designing",
+        "Influencer Marketing", "Content Marketing", "Creative Designs",
     ];
 
+    const handleOpenPdf = () => {
+        window.open('/aboutColorTouch.pdf', '_blank'); 
+        setIsMobileMenuOpen(false); 
+    };
+
+    const handleLinkClick = () => {
+        setIsMobileMenuOpen(false); 
+    };
+
     return (
-        <div className="sticky top-0 z-50 bg-white  shadow-sm rounded-t-xl px-6 lg:px-40 py-2 flex items-center justify-between mx-auto">
-            {/* Logo */}
-            <div className="max-w-7xl font-bold text-3xl lg:text-[25px] text-transparent bg-clip-text animate-gradient">
-                ColorTouch
-            </div>
-
-            {/* Desktop Navigation */}
-              
-<ul className="hidden md:flex items-center space-x-8">
-    {['Home', 'About'].map((item) => (
-        <li key={item}>
-            <a
-                href={`#${item.toLowerCase()}`}
-                className="relative font-semibold text-gray-700 hover:text-black transition-colors group py-2 text-[17px]"
-            >
-                {item}
-                {/* Gradient Underline */}
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
-            </a>
-        </li>
-    ))}
-
-    {/* Dropdown Section */}
-    <li className="relative dropdown" ref={dropdownRef}>
-        <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="relative flex items-center font-semibold text-gray-700 hover:text-black transition-colors focus:outline-none group py-2 text-[17px]"
-        >
-            Services
-            <FaAngleDown className={`ml-1 text-sm transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm rounded-b-xl px-6 lg:px-40 py-3 flex items-center justify-between mx-auto transition-all duration-300">
             
-            {/* Gradient Underline for Services */}
-            <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
-        </button>
-
-        {isOpen && (
-            <div className="absolute left-0 mt-2 w-60 bg-white border border-gray-100 rounded-lg shadow-lg py-2 z-20 px-2">
-                {services.map((service, index) => (
-                    <a
-                        key={index}
-                        href="#"
-                        className="block px-2 py-3 rounded-lg text-sm font-medium text-gray-700 transition-all duration-300 hover:text-white hover-animated-bg hover:shadow-md "
-                    >
-                        {service}
-                    </a>
-                ))}
+            {/* --- Logo --- */}
+            <div className="max-w-7xl font-bold text-3xl lg:text-[25px] text-transparent bg-clip-text animate-gradient cursor-pointer">
+                <a href="#home">ColorTouch</a>
             </div>
-        )}
-    </li>
 
-    {['Portfolio', 'Testimonials', 'Contact'].map((item) => (
-        <li key={item}>
-            <a
-                href={`#${item.toLowerCase()}`}
-                className="relative font-semibold text-gray-700 hover:text-black transition-colors group py-2 text-[17px]"
-            >
-                {item}
-                {/* Gradient Underline */}
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
-            </a>
-        </li>
-        ))}
-    </ul>
-
+            {/* --- Desktop Navigation --- */}
+            <ul className="hidden lg:flex items-center space-x-8">
                 
+                {/* 1. HOME */}
+                <li>
+                    <a href="#home" className="relative font-medium text-gray-700 hover:text-black transition-colors group py-2 text-[16px]">
+                        Home
+                        <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </li>
 
-            {/* Mobile Menu Button */}
+                {/* 2. ABOUT */}
+                <li 
+                    className="relative py-2 h-full"
+                    onMouseEnter={() => setIsAboutHovered(true)}
+                    onMouseLeave={() => setIsAboutHovered(false)}
+                    ref={aboutDropdownRef}
+                >
+                    <button className="relative flex items-center font-medium text-gray-700 hover:text-black transition-colors focus:outline-none group text-[16px]">
+                        About
+                        <FaAngleDown className={`ml-1 text-sm transition-transform duration-300 ${isAboutHovered ? 'rotate-180' : ''}`} />
+                        <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
+                    </button>
+
+                    {/* About Card Popup */}
+                    <div 
+                        className={`absolute left-0 mt-2 w-80 bg-white border border-gray-100 rounded-xl shadow-xl p-5 z-20 transition-all duration-300 origin-top ${isAboutHovered ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'}`}
+                    >
+                        <h3 className="font-bold text-lg text-gray-800 mb-2">Who We Are</h3>
+                        <p className="text-sm text-gray-500 mb-4 leading-relaxed">
+                            We are a creative agency dedicated to adding color to your digital presence through innovative strategies.
+                        </p>
+                        <button 
+                            onClick={handleOpenPdf}
+                            className="w-full bg-black text-white py-2.5 rounded-lg text-sm font-semibold hover-animated-bg transition-colors shadow-md"
+                        >
+                            Explore More (PDF)
+                        </button>
+                    </div>
+                </li>
+
+                {/* 3. SERVICES*/}
+                <li className="relative" ref={servicesDropdownRef}>
+                    <button
+                        onClick={() => setIsServicesOpen(!isServicesOpen)}
+                        className="relative flex items-center font-medium text-gray-700 hover:text-black transition-colors focus:outline-none group py-2 text-[16px]"
+                    >
+                        Services
+                        <FaAngleDown className={`ml-1 text-sm transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                        <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
+                    </button>
+
+                    {/* Services List*/}
+                    {isServicesOpen && (
+                        <div className="absolute left-0 mt-2 w-64 max-h-[400px] overflow-y-auto bg-white border border-gray-100 rounded-lg shadow-lg py-2 z-20 px-2 scrollbar-thin scrollbar-thumb--200">
+                            {services.map((service, index) => (
+                                <a
+                                    key={index}
+                                    href="#"
+                                    className="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:text-white hover-animated-bg hover:shadow-md"
+                                >
+                                    {service}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </li>
+
+                {/* 4. OTHER LINKS */}
+                {['Portfolio', 'Testimonials', 'Contact'].map((item) => (
+                    <li key={item}>
+                        <a 
+                            href={`#${item.toLowerCase()}`} 
+                            className="relative font-medium text-gray-700 hover:text-black transition-colors group py-2 text-[16px]"
+                        >
+                            {item}
+                            <span className="absolute left-0 bottom-0 w-0 h-0.5 animate-gradient-background transition-all duration-300 group-hover:w-full"></span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+
+            {/* --- Mobile Menu Button --- */}
             <button
-                className="lg:hidden mobile-menu-button p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+                className="lg:hidden mobile-menu-button p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
                 {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
 
-            {/* Mobile Navigation */}
+            {/* --- Mobile Navigation Menu --- */}
             {isMobileMenuOpen && (
                 <div
                     ref={mobileMenuRef}
-                    className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg rounded-b-xl mx-2 border-t"
+                    className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-100 animate-in slide-in-from-top-5 duration-200"
                 >
-                    <ul className="flex flex-col p-4 space-y-4">
-                        <li className="hover:text-black transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
-                            Home
-                        </li>
-                        <li className="hover:text-blue-600 transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
-                            About
-                        </li>
-
-                        {/* Mobile Dropdown Section */}
-                        <li className="relative">
-                            <div
-                                onClick={() => setIsOpen(!isOpen)}
-                                className="flex items-center justify-between py-2 px-4 rounded-lg hover:bg-gray-50 cursor-pointer"
+                    <ul className="flex flex-col p-4 space-y-2 max-h-[85vh] overflow-y-auto">
+                        
+                        {/* Mobile Home */}
+                        <li>
+                            <a 
+                                href="#home" 
+                                onClick={handleLinkClick}
+                                className="block py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
                             >
-                                <span className="hover:text-blue-600 transition-colors">Services</span>
-                                <FaAngleDown className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-                            </div>
+                                Home
+                            </a>
+                        </li>
 
-                            {isOpen && (
-                                <div className="mt-2 bg-gray-50 rounded-lg p-2 space-y-2">
+                        {/* Mobile About (Accordion Style) */}
+                        <li>
+                            <button 
+                                onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                                className="w-full flex items-center justify-between py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                            >
+                                <span>About</span>
+                                <FaAngleDown className={`transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`} />
+                            </button>
+                            
+                            {/* Mobile About Content */}
+                            {isMobileAboutOpen && (
+                                <div className="mx-4 mb-2 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                    <h3 className="font-bold text-gray-800 mb-2">Who We Are</h3>
+                                    <p className="text-sm text-gray-500 mb-4">
+                                        We are a creative agency dedicated to adding color to your digital presence.
+                                    </p>
+                                    <button 
+                                        onClick={handleOpenPdf}
+                                        className="w-full bg-black text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-colors"
+                                    >
+                                        Explore More (PDF)
+                                    </button>
+                                </div>
+                            )}
+                        </li>
+
+                        {/* Mobile Services*/}
+                        <li>
+                            <button 
+                                onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                                className="w-full flex items-center justify-between py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                            >
+                                <span>Services</span>
+                                <FaAngleDown className={`transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            {isMobileServicesOpen && (
+                                <div className="mx-4 mt-1 bg-gray-50 rounded-xl p-2 space-y-1">
                                     {services.map((service, index) => (
-                                        <div
+                                        <a
                                             key={index}
-                                            className="block py-2 px-6 transition-all duration-300 cursor-pointer rounded-md text-gray-700 hover:text-blue-600 hover:bg-white font-"
-                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            href="#"
+                                            onClick={handleLinkClick}
+                                            className="block px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:text-blue-600 hover:bg-white transition-all"
                                         >
                                             {service}
-                                        </div>
+                                        </a>
                                     ))}
                                 </div>
                             )}
                         </li>
 
-                        <li className="hover:text-blue-600 transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
-                            Portfolio
-                        </li>
-                        <li className="hover:text-blue-600 transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
-                            Testimonials
-                        </li>
-                        <li className="hover:text-blue-600 transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-50">
-                            Contact
-                        </li>
+                        {/* Mobile Other Links */}
+                        {['Portfolio', 'Testimonials', 'Contact'].map((item) => (
+                            <li key={item}>
+                                <a 
+                                    href={`#${item.toLowerCase()}`}
+                                    onClick={handleLinkClick}
+                                    className="block py-3 px-4 rounded-lg font-medium text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                                >
+                                    {item}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             )}

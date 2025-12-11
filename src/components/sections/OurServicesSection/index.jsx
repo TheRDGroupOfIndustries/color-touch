@@ -37,7 +37,7 @@ const OurServicesSection = () => {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3">
                     Our <span className="text-transparent bg-clip-text animate-gradient-background animate-gradient">Services</span>
                 </h1>
-                <div className="w-24 h-1 animate-gradient-background mx-auto my-4 rounded-full mb-5"></div>
+                <div className="w-24 h-1 animate-gradient-background mx-auto my-2 rounded-full mb-5"></div>
                 <p className="text-gray-600 sm:text-lg lg:text-xl my-4 max-w-4xl mx-auto">
                     Comprehensive digital marketing solutions designed to
                     elevate your brand and drive meaningful engagement
